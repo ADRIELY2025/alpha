@@ -85,7 +85,7 @@ $app->group('/produto', function (RouteCollectorProxy $group) {
     $group->get('/alterar/{id}', Produto::class . ':alterar'); #->add(Auth::route());
     $group->get('/print', Produto::class . ':print');
     $group->post('/update', Produto::class . ':update');
-    $group->post('/listproduto', Produto::class . ':listproduto');
+    $group->post('/listaproduto', Produto::class . ':listaproduto');
     $group->post('/insert', Produto::class . ':insert');
     $group->post('/delete', Produto::class . ':delete');
     $group->post('/listproductdata', Produto::class . ':listproductdata');

@@ -3,7 +3,6 @@
 namespace app\controller;
 
 use app\database\builder\InsertQuery;
-use app\database\builder\DeleteQuery;
 use app\database\builder\SelectQuery;
 use app\database\builder\UpdateQuery;
 
@@ -16,7 +15,7 @@ class Produto extends Base
             'titulo' => 'Lista de Produtos'
         ];
         return $this->getTwig()
-            ->render($response, $this->setView('listproduto'), $dadosTemplate)
+            ->render($response, $this->setView('listaproduto'), $dadosTemplate)
             ->withHeader('Content-Type', 'text/html')
             ->withStatus(200);
     }
@@ -55,7 +54,7 @@ class Produto extends Base
             return $this->SendJson($response, ['status' => false, 'msg' => 'Restrição: ' . $e->getMessage(), 'id' => 0], 500);
         }
     }
-    public function listproductdata($request, $response)
+    public function listaproductdata($request, $response)
     {
         $form = $request->getParsedBody();
         $term = $form['term'] ?? null;
@@ -75,7 +74,7 @@ class Produto extends Base
         #$data['pagination'] = ['more' => true];
         return $this->SendJson($response, $data);
     }
-    public function listproduto($request, $response)
+    public function listaproduto($request, $response)
     {
         #Captura todas a variaveis de forma mais segura VARIAVEIS POST.
         $form = $request->getParsedBody();
